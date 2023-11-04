@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema
+    xmlns:xs="http://www.w3.org/2001/XMLSchema"
+    targetNamespace="http://buchungsbestaetigungen.ch/adressen/">
+
+    <!--Namensraum für die Angaben der Personalien inkl. Einschraenkung bei Anrede-->
+    <xs:element name="anrede" type="xs:string" />
+    <xs:element name="vorname" type="xs:string" />
+    <xs:element name="nachname" type="xs:string" />
+    <xs:element name="adresse" type="xs:string" />
+    <!--Defenierung dass nur 4 Zahlen als PLZ gelten per Regex-->
+    <xs:element name="plz" type="xs:string" />
+    <xs:element name="ort" type="xs:string" />
+</xs:schema>

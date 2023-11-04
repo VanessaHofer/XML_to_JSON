@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rechnungsbeleg xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://buchungsbestaetigungen.ch/rechnungen/" rechnungsnummer="23-8178680" rechnungsdatum="30.08.23" rechnungsort="Dietikon" xsi:schemaLocation="http://buchungsbestaetigungen.ch/rechnungen/ 02_rechnungsbeleg.xsd">
+	<lieferant>
+		<firma>Exlibris AG</firma>
+		<adresse>Lerzenstrasse 18</adresse>
+		<ort>Dietikon</ort>
+		<plz>8953</plz>
+		<telefon>+41585777272</telefon>
+		<email>kundendienst@exlibris.ch</email>
+		<webseite>www.exlibris.ch</webseite>
+	</lieferant>
+	<!--Die Personalien des Kunden sollen dem Namensraum adressen zugeordnet werden-->
+	<lieferadresse xmlns:adressen="http://buchungsbestaetigungen.ch/adressen/">
+		<adressen:anrede>Frau</adressen:anrede>
+		<adressen:vorname>Vanessa</adressen:vorname>
+		<adressen:nachname>Hofer</adressen:nachname>
+		<adressen:adresse>Oeschmattweg 5</adressen:adresse>
+		<adressen:plz>4553</adressen:plz>
+		<adressen:ort>Subingen</adressen:ort>
+	</lieferadresse>
+	<bestellinformationen>
+		<bestelldatum>29.08.2023 09:45</bestelldatum>
+		<kunden-nr>01191555</kunden-nr>
+		<bestell-nr>51898323 / 6027831424</bestell-nr>
+	</bestellinformationen>
+	<!--Die Artikelpositionen der Rechnung sollen dem Namensraum pos zugeordnet werden-->
+	<artikel-positionen xmlns:pos="http://buchungsbestaetigungen.ch/positionen/">
+		<position>
+			<pos:anz-lief>1</pos:anz-lief>
+			<pos:anz-best>1</pos:anz-best>
+			<pos:artikelnummer>140.2833-1</pos:artikelnummer>
+			<!--CDATA eingefügt, damit der Abschnitt "nur als Text" verarbeitet wird.-->
+			<pos:bezeichnung><![CDATA[Yarros,Iron Flame Flammengeküsst,Farbschnitt 9783423283830 Tiefpreis Bücher deutsch "]]></pos:bezeichnung>
+			<pos:mwst-code>2</pos:mwst-code>
+			<pos:preis>36.70</pos:preis>
+			<pos:total-srf>36.70</pos:total-srf>
+		</position>
+		<position>
+			<pos:anz-lief>1</pos:anz-lief>
+			<pos:anz-best>1</pos:anz-best>
+			<pos:artikelnummer>140.2825-3</pos:artikelnummer>
+			<!--CDATA eingefügt, damit der Abschnitt "nur als Text" verarbeitet wird.-->
+			<pos:bezeichnung><![CDATA[Yarros,Fourth Wing Flammengeküsst 9783423283403 Tiefpreis Bücher deutsch "]]></pos:bezeichnung>
+			<pos:mwst-code>2</pos:mwst-code>
+			<pos:preis>28.30</pos:preis>
+			<pos:total-srf>28.30</pos:total-srf>
+		</position>
+		<position>
+			<pos:anz-lief>1</pos:anz-lief>
+			<pos:anz-best>1</pos:anz-best>
+			<pos:artikelnummer>162.1311-4</pos:artikelnummer>
+			<!--CDATA eingefügt, damit der Abschnitt "nur als Text" verarbeitet wird.-->
+			<pos:bezeichnung><![CDATA[Elemental Assassin - Spinnenkuss, Jennifer Estep 9783492280938 Tiefpreis Bücher deutsch "]]></pos:bezeichnung>
+			<pos:mwst-code>2</pos:mwst-code>
+			<pos:preis>18.00</pos:preis>
+			<pos:total-srf>18.00</pos:total-srf>
+		</position>
+		<position>
+			<pos:anz-lief>1</pos:anz-lief>
+			<pos:anz-best>1</pos:anz-best>
+			<pos:artikelnummer>162.1464-6</pos:artikelnummer>
+			<!--CDATA eingefügt, damit der Abschnitt "nur als Text" verarbeitet wird.-->
+			<pos:bezeichnung><![CDATA[Elemental Assassin - Spinnentanz, Jennifer Estep 9783492280938 Tiefpreis Bücher deutsch "]]></pos:bezeichnung>
+			<pos:mwst-code>2</pos:mwst-code>
+			<pos:preis>18.00</pos:preis>
+			<pos:total-srf>18.00</pos:total-srf>
+		</position>
+	</artikel-positionen>
+	<kosten>
+		<zwischentotal>186.10</zwischentotal>
+		<cumulus-bon>70.00</cumulus-bon>
+		<total>116.10</total>
+	</kosten>
+	<zahlungsinformationen>
+		<cumulus-nr>2099554508849</cumulus-nr>
+		<club-nr>2098370995918</club-nr>
+		<mwst>CHE-105.925.354</mwst>
+		<zahlungskondition>Twint-Zahlung</zahlungskondition>
+	</zahlungsinformationen>
+</rechnungsbeleg>

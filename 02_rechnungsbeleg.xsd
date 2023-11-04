@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema
+    xmlns:xs="http://www.w3.org/2001/XMLSchema"
+    targetNamespace="http://buchungsbestaetigungen.ch/rechnungen/"
+    xmlns="http://buchungsbestaetigungen.ch/rechnungen/"
+    xmlns:pos="http://buchungsbestaetigungen.ch/positionen/"
+    xmlns:adressen="http://buchungsbestaetigungen.ch/adressen/"
+    elementFormDefault="qualified">
+
+    <!--Import Schema für Namensraum Adressen und Positionen-->
+    <xs:import namespace="http://buchungsbestaetigungen.ch/positionen/"
+        schemaLocation="02_positionen.xsd" />
+    <xs:import namespace="http://buchungsbestaetigungen.ch/adressen/"
+        schemaLocation="02_adressen.xsd" />
+
+    <xs:element name="rechnungsbeleg">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="lieferant">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="firma" type="xs:string" />
+                            <xs:element name="adresse" type="xs:string" />
+                            <xs:element name="ort" type="xs:string" />
+                            <!--Defenierung dass nur 4 Zahlen als PLZ gelten per Regex-->
+                            <xs:element name="plz" type="xs:string" />
+                            <!--Defenierung dass die Telefonnummer im Format +41xxxxxxxxx erscheinen muss-->
+                            <xs:element name="telefon" type="xs:string" />
+                            <xs:element name="email" type="xs:string" />
+                            <xs:element name="webseite" type="xs:string" />
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="lieferadresse">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <!--Verweis auf Namensraum adressen-->
+                            <xs:element ref="adressen:anrede" />
+                            <xs:element ref="adressen:vorname" />
+                            <xs:element ref="adressen:nachname" />
+                            <xs:element ref="adressen:adresse" />
+                            <xs:element ref="adressen:plz" />
+                            <xs:element ref="adressen:ort" />
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="bestellinformationen">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <!--Definierung Format Datum (inkl. Anzahl Monate usw.)-->
+                            <xs:element name="bestelldatum" type="xs:string" />
+                            <xs:element name="kunden-nr" type="xs:unsignedInt" />
+                            <xs:element name="bestell-nr" type="xs:string" />
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="artikel-positionen">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element maxOccurs="unbounded" name="position">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <!--Verweis auf Namensraum positionen-->
+                                        <xs:element ref="pos:anz-lief" />
+                                        <xs:element ref="pos:anz-best" />
+                                        <xs:element ref="pos:artikelnummer" />
+                                        <xs:element ref="pos:bezeichnung" />
+                                        <xs:element ref="pos:mwst-code" />
+                                        <xs:element ref="pos:preis" />
+                                        <xs:element ref="pos:total-srf" />
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="kosten">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="zwischentotal" type="xs:decimal" />
+                            <xs:element name="cumulus-bon" type="xs:decimal" />
+                            <xs:element name="total" type="xs:decimal" />
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="zahlungsinformationen">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="cumulus-nr" type="xs:string" />
+                            <xs:element name="club-nr" type="xs:string" />
+                            <xs:element name="mwst" type="xs:string" />
+                            <!--Zahlungsmöglichkeiten mit folgenden drei Auswahlen-->
+                            <xs:element name="zahlungskondition">
+                                <xs:simpleType>
+                                    <xs:restriction base="xs:string">
+                                        <xs:enumeration value="Twint-Zahlung" />
+                                        <xs:enumeration value="Rechnung" />
+                                        <xs:enumeration value="Kreditkarte" />
+                                    </xs:restriction>
+                                </xs:simpleType>
+                            </xs:element>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+            <xs:attribute name="rechnungsnummer" type="xs:string"/>
+            <xs:attribute name="rechnungsdatum" type="xs:string"/>
+            <xs:attribute name="rechnungsort" type="xs:string"/>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>

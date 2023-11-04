@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema
+    xmlns:xs="http://www.w3.org/2001/XMLSchema"
+    targetNamespace="http://buchungsbestaetigungen.ch/positionen/">
+
+   <!--Namensraum für die Angaben der Positionen-->
+    <xs:element name="anz-lief" type="xs:string" />
+    <xs:element name="anz-best" type="xs:string" />
+    <xs:element name="artikelnummer" type="xs:string" />
+    <xs:element name="bezeichnung" type="xs:string" />
+    <xs:element name="mwst-code" type="xs:string" />
+    <xs:element name="preis" type="xs:string" />
+    <xs:element name="total-srf" type="xs:string" />
+  </xs:schema>
